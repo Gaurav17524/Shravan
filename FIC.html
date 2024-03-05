@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Protected Blog</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  h1 {
+    margin-top: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+  .post {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .post h2 {
+    margin-top: 0;
+  }
+  .post p {
+    line-height: 1.6;
+  }
+  #passwordPrompt {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  #passwordPrompt h2 {
+    margin-top: 0;
+  }
+  #passwordPrompt input[type="password"] {
+    width: calc(100% - 10px);
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  #passwordPrompt button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  #error {
+    display: none;
+    color: red;
+    margin-top: 10px;
+  }
+</style>
+<script>
+  function checkPassword() {
+    var password = document.getElementById("password").value;
+    var correctPassword = "Abhiram";
+    if (password === correctPassword) {
+      document.getElementById("content").style.display = "block";
+      document.getElementById("passwordPrompt").style.display = "none";
+    } else {
+      document.getElementById("error").style.display = "block";
+    }
+  }
+</script>
+</head>
+<body>
+<header>
+  <h1>My Blog</h1>
+</header>
+<div class="container">
+  <div id="passwordPrompt">
+    <h2>Password Protected Blog</h2>
+    <p>Please enter the password to view the content:</p>
+    <input type="password" id="password">
+    <button onclick="checkPassword()">Submit</button>
+    <p id="error">Incorrect password. Please try again.</p>
+  </div>
+
+  <div id="content" style="display: none;">
+    <div class="post">
+      <h2>Post Title 1</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in arcu eget odio consectetur pharetra.</p>
+    </div>
+    <div class="post">
+      <h2>Post Title 2</h2>
+      <p>Quisque interdum libero sed nunc commodo, ut laoreet ipsum vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+    </div>
+    <div class="post">
+      <h2>Post Title 3</h2>
+      <p>Donec sed lorem sed nisi lacinia malesuada. Curabitur ut varius est. Nulla ut risus sed elit fermentum tristique. Duis dapibus semper massa, ac commodo urna vestibulum nec.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
